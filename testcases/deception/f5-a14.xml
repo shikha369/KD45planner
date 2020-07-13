@@ -1,0 +1,1076 @@
+<PROGRAM>
+    <PROPOSITIONS text='PROPS' pos='2:0'>
+        <PROPOSITION text='atm' pos='2:9'/>
+        <PROPOSITION text='atf' pos='2:13'/>
+        <PROPOSITION text='atg' pos='2:17'/>
+        <PROPOSITION text='thm' pos='2:21'/>
+        <PROPOSITION text='thf' pos='2:25'/>
+    </PROPOSITIONS>
+    <AG text='AGENTS' pos='4:0'>
+        <AGENT text='m' pos='4:10'/>
+        <AGENT text='f' pos='4:13'/>
+    </AG>
+    <INITIAL_KRIPKE text='MODEL' pos='10:0'>
+        <NODELIST text='NODES' pos='10:10'>
+            <N text='1' pos='10:20'>
+                <PROPOSITION text='atm' pos='10:23'/>
+                <PROPOSITION text='atf' pos='10:27'/>
+                <PROPOSITION text='atg' pos='10:31'/>
+                <PROPOSITION text='thm' pos='10:35'/>
+                <PROPOSITION text='thf' pos='10:39'/>
+            </N>
+            <N text='2' pos='10:47'>
+                <PROPOSITION text='atm' pos='10:50'/>
+                <PROPOSITION text='atf' pos='10:54'/>
+                <PROPOSITION text='-atg' pos='10:58'/>
+                <PROPOSITION text='thm' pos='10:63'/>
+                <PROPOSITION text='-thf' pos='10:67'/>
+            </N>
+        </NODELIST>
+        <EDGELIST text='EDGES' pos='12:0'>
+            <AE text='m' pos='12:10'>
+                <E text='1' pos='12:13'>
+                    <ID text='1' pos='12:16'/>
+                    <ID text='1' pos='12:18'/>
+                </E>
+                <E text='2' pos='12:21'>
+                    <ID text='2' pos='12:24'/>
+                    <ID text='2' pos='12:26'/>
+                </E>
+            </AE>
+            <AE text='f' pos='12:32'>
+                <E text='1' pos='12:35'>
+                    <ID text='1' pos='12:38'/>
+                    <ID text='1' pos='12:40'/>
+                </E>
+                <E text='2' pos='12:43'>
+                    <ID text='1' pos='12:46'/>
+                    <ID text='2' pos='12:48'/>
+                </E>
+                <E text='3' pos='12:51'>
+                    <ID text='2' pos='12:54'/>
+                    <ID text='1' pos='12:56'/>
+                </E>
+                <E text='4' pos='12:59'>
+                    <ID text='2' pos='12:62'/>
+                    <ID text='2' pos='12:64'/>
+                </E>
+            </AE>
+        </EDGELIST>
+        <DES pos='14:0'>
+            <ID text='2' pos='14:7'/>
+        </DES>
+    </INITIAL_KRIPKE>
+    <EVENTMODELS text='ACTIONS' pos='18:0'>
+        <CAPABILITIES text='CAPABILITY' pos='22:0'>
+            <EVENTMODEL text='quit_f' pos='22:16'>
+                <EVENTLIST text='EVENTS' pos='22:27'>
+                    <ID text='1' pos='22:38'>
+                        <PRECONDITIONS text='PRE' pos='22:44'>
+                            <AND pos='22:62'>
+                                <BELIEVES text='B' pos='22:50'>
+                                    <AGENT text='f' pos='22:53'/>
+                                    <PROPOSITION text='thf' pos='22:57'/>
+                                </BELIEVES>
+                                <PROPOSITION text='atf' pos='22:66'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='22:72'>
+                            <PROPOSITION text='-atf' pos='22:80'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='22:91'>
+                    <AE text='m' pos='22:100'>
+                        <E text='1' pos='22:103'>
+                            <ID text='1' pos='22:106'/>
+                            <ID text='1' pos='22:108'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='22:114'>
+                        <E text='1' pos='22:117'>
+                            <ID text='1' pos='22:120'/>
+                            <ID text='1' pos='22:122'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='22:129'>
+                    <ID text='1' pos='22:136'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='22:143'/>
+            <EXPLANATION text='fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves' pos='22:146'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='26:0'>
+            <EVENTMODEL text='announce_m_to_f_atm' pos='26:16'>
+                <EVENTLIST text='EVENTS' pos='26:40'>
+                    <ID text='1' pos='26:51'>
+                        <PRECONDITIONS text='PRE' pos='26:57'>
+                            <NOT pos='26:63'>
+                                <BELIEVES text='B' pos='26:68'>
+                                    <AGENT text='m' pos='26:71'/>
+                                    <BELIEVES text='B' pos='26:75'>
+                                        <AGENT text='f' pos='26:78'/>
+                                        <PROPOSITION text='-atm' pos='26:82'/>
+                                    </BELIEVES>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='26:92'>
+                            <PROPOSITION text='nil' pos='26:100'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='26:109'>
+                        <PRECONDITIONS text='PRE' pos='26:115'>
+                            <AND pos='26:149'>
+                                <BELIEVES text='B' pos='26:121'>
+                                    <AGENT text='m' pos='26:124'/>
+                                    <NOT pos='26:129'>
+                                        <BELIEVES text='B' pos='26:134'>
+                                            <AGENT text='f' pos='26:137'/>
+                                            <PROPOSITION text='-atm' pos='26:141'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                </BELIEVES>
+                                <PROPOSITION text='atm' pos='26:153'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='26:159'>
+                            <PROPOSITION text='nil' pos='26:167'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='26:178'>
+                    <AE text='m' pos='26:187'>
+                        <E text='1' pos='26:191'>
+                            <ID text='1' pos='26:196'/>
+                            <ID text='1' pos='26:198'/>
+                        </E>
+                        <E text='2' pos='26:202'>
+                            <ID text='2' pos='26:207'/>
+                            <ID text='2' pos='26:209'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='26:215'>
+                        <E text='1' pos='26:219'>
+                            <ID text='1' pos='26:224'/>
+                            <ID text='2' pos='26:226'/>
+                        </E>
+                        <E text='2' pos='26:230'>
+                            <ID text='2' pos='26:235'/>
+                            <ID text='2' pos='26:237'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='26:244'>
+                    <ID text='1' pos='26:251'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='26:258'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_mouse_hence_it_announces_the_presence' pos='26:261'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='28:0'>
+            <EVENTMODEL text='announce_m_to_f_atf' pos='28:16'>
+                <EVENTLIST text='EVENTS' pos='28:40'>
+                    <ID text='1' pos='28:51'>
+                        <PRECONDITIONS text='PRE' pos='28:57'>
+                            <NOT pos='28:63'>
+                                <BELIEVES text='B' pos='28:68'>
+                                    <AGENT text='m' pos='28:71'/>
+                                    <BELIEVES text='B' pos='28:75'>
+                                        <AGENT text='f' pos='28:78'/>
+                                        <PROPOSITION text='-atf' pos='28:82'/>
+                                    </BELIEVES>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='28:92'>
+                            <PROPOSITION text='nil' pos='28:100'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='28:109'>
+                        <PRECONDITIONS text='PRE' pos='28:115'>
+                            <AND pos='28:149'>
+                                <BELIEVES text='B' pos='28:121'>
+                                    <AGENT text='m' pos='28:124'/>
+                                    <NOT pos='28:129'>
+                                        <BELIEVES text='B' pos='28:134'>
+                                            <AGENT text='f' pos='28:137'/>
+                                            <PROPOSITION text='-atf' pos='28:141'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                </BELIEVES>
+                                <PROPOSITION text='atf' pos='28:153'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='28:159'>
+                            <PROPOSITION text='nil' pos='28:167'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='28:178'>
+                    <AE text='m' pos='28:187'>
+                        <E text='1' pos='28:191'>
+                            <ID text='1' pos='28:196'/>
+                            <ID text='1' pos='28:198'/>
+                        </E>
+                        <E text='2' pos='28:202'>
+                            <ID text='2' pos='28:207'/>
+                            <ID text='2' pos='28:209'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='28:215'>
+                        <E text='1' pos='28:219'>
+                            <ID text='1' pos='28:224'/>
+                            <ID text='2' pos='28:226'/>
+                        </E>
+                        <E text='2' pos='28:230'>
+                            <ID text='2' pos='28:235'/>
+                            <ID text='2' pos='28:237'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='28:244'>
+                    <ID text='1' pos='28:251'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='28:258'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_fox_hence_it_announces_the_presence' pos='28:261'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='30:0'>
+            <EVENTMODEL text='announce_m_to_f_not_atg' pos='30:16'>
+                <EVENTLIST text='EVENTS' pos='30:44'>
+                    <ID text='1' pos='30:55'>
+                        <PRECONDITIONS text='PRE' pos='30:61'>
+                            <NOT pos='30:67'>
+                                <BELIEVES text='B' pos='30:72'>
+                                    <AGENT text='m' pos='30:75'/>
+                                    <BELIEVES text='B' pos='30:79'>
+                                        <AGENT text='f' pos='30:82'/>
+                                        <PROPOSITION text='atg' pos='30:86'/>
+                                    </BELIEVES>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='30:95'>
+                            <PROPOSITION text='nil' pos='30:103'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='30:112'>
+                        <PRECONDITIONS text='PRE' pos='30:118'>
+                            <AND pos='30:151'>
+                                <BELIEVES text='B' pos='30:124'>
+                                    <AGENT text='m' pos='30:127'/>
+                                    <NOT pos='30:132'>
+                                        <BELIEVES text='B' pos='30:137'>
+                                            <AGENT text='f' pos='30:140'/>
+                                            <PROPOSITION text='atg' pos='30:144'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                </BELIEVES>
+                                <NOT pos='30:155'>
+                                    <PROPOSITION text='atg' pos='30:159'/>
+                                </NOT>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='30:166'>
+                            <PROPOSITION text='nil' pos='30:174'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='30:185'>
+                    <AE text='m' pos='30:194'>
+                        <E text='1' pos='30:198'>
+                            <ID text='1' pos='30:203'/>
+                            <ID text='1' pos='30:205'/>
+                        </E>
+                        <E text='2' pos='30:209'>
+                            <ID text='2' pos='30:214'/>
+                            <ID text='2' pos='30:216'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='30:222'>
+                        <E text='1' pos='30:226'>
+                            <ID text='1' pos='30:231'/>
+                            <ID text='2' pos='30:233'/>
+                        </E>
+                        <E text='2' pos='30:237'>
+                            <ID text='2' pos='30:242'/>
+                            <ID text='2' pos='30:244'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='30:251'>
+                    <ID text='1' pos='30:258'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='30:265'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_absence' pos='30:268'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='32:0'>
+            <EVENTMODEL text='announce_m_to_f_not_atf' pos='32:16'>
+                <EVENTLIST text='EVENTS' pos='32:44'>
+                    <ID text='1' pos='32:55'>
+                        <PRECONDITIONS text='PRE' pos='32:61'>
+                            <NOT pos='32:67'>
+                                <BELIEVES text='B' pos='32:72'>
+                                    <AGENT text='m' pos='32:75'/>
+                                    <BELIEVES text='B' pos='32:79'>
+                                        <AGENT text='f' pos='32:82'/>
+                                        <PROPOSITION text='atf' pos='32:86'/>
+                                    </BELIEVES>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='32:95'>
+                            <PROPOSITION text='nil' pos='32:103'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='32:112'>
+                        <PRECONDITIONS text='PRE' pos='32:118'>
+                            <AND pos='32:151'>
+                                <BELIEVES text='B' pos='32:124'>
+                                    <AGENT text='m' pos='32:127'/>
+                                    <NOT pos='32:132'>
+                                        <BELIEVES text='B' pos='32:137'>
+                                            <AGENT text='f' pos='32:140'/>
+                                            <PROPOSITION text='atf' pos='32:144'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                </BELIEVES>
+                                <NOT pos='32:155'>
+                                    <PROPOSITION text='atf' pos='32:159'/>
+                                </NOT>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='32:166'>
+                            <PROPOSITION text='nil' pos='32:174'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='32:185'>
+                    <AE text='m' pos='32:194'>
+                        <E text='1' pos='32:198'>
+                            <ID text='1' pos='32:203'/>
+                            <ID text='1' pos='32:205'/>
+                        </E>
+                        <E text='2' pos='32:209'>
+                            <ID text='2' pos='32:214'/>
+                            <ID text='2' pos='32:216'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='32:222'>
+                        <E text='1' pos='32:226'>
+                            <ID text='1' pos='32:231'/>
+                            <ID text='2' pos='32:233'/>
+                        </E>
+                        <E text='2' pos='32:237'>
+                            <ID text='2' pos='32:242'/>
+                            <ID text='2' pos='32:244'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='32:251'>
+                    <ID text='1' pos='32:258'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='32:265'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_fox_hence_it_announces_the_absence' pos='32:268'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='34:0'>
+            <EVENTMODEL text='announce_m_to_f_not_atm' pos='34:16'>
+                <EVENTLIST text='EVENTS' pos='34:44'>
+                    <ID text='1' pos='34:55'>
+                        <PRECONDITIONS text='PRE' pos='34:61'>
+                            <NOT pos='34:67'>
+                                <BELIEVES text='B' pos='34:72'>
+                                    <AGENT text='m' pos='34:75'/>
+                                    <BELIEVES text='B' pos='34:79'>
+                                        <AGENT text='f' pos='34:82'/>
+                                        <PROPOSITION text='atm' pos='34:86'/>
+                                    </BELIEVES>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='34:95'>
+                            <PROPOSITION text='nil' pos='34:103'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='34:112'>
+                        <PRECONDITIONS text='PRE' pos='34:118'>
+                            <BELIEVES text='B' pos='34:124'>
+                                <AGENT text='m' pos='34:127'/>
+                                <AND pos='34:150'>
+                                    <NOT pos='34:132'>
+                                        <BELIEVES text='B' pos='34:137'>
+                                            <AGENT text='f' pos='34:140'/>
+                                            <PROPOSITION text='atm' pos='34:144'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                    <NOT pos='34:154'>
+                                        <PROPOSITION text='atm' pos='34:158'/>
+                                    </NOT>
+                                </AND>
+                            </BELIEVES>
+                        </PRECONDITIONS>
+                        <POST pos='34:165'>
+                            <PROPOSITION text='nil' pos='34:173'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='34:184'>
+                    <AE text='m' pos='34:193'>
+                        <E text='1' pos='34:197'>
+                            <ID text='1' pos='34:202'/>
+                            <ID text='1' pos='34:204'/>
+                        </E>
+                        <E text='2' pos='34:208'>
+                            <ID text='2' pos='34:213'/>
+                            <ID text='2' pos='34:215'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='34:221'>
+                        <E text='1' pos='34:225'>
+                            <ID text='1' pos='34:230'/>
+                            <ID text='2' pos='34:232'/>
+                        </E>
+                        <E text='2' pos='34:236'>
+                            <ID text='2' pos='34:241'/>
+                            <ID text='2' pos='34:243'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='34:250'>
+                    <ID text='1' pos='34:257'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='34:264'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_mouse_hence_it_announces_the_absence' pos='34:267'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='36:0'>
+            <EVENTMODEL text='announce_f_to_m_atg' pos='36:16'>
+                <EVENTLIST text='EVENTS' pos='36:40'>
+                    <ID text='1' pos='36:51'>
+                        <PRECONDITIONS text='PRE' pos='36:57'>
+                            <NOT pos='36:63'>
+                                <BELIEVES text='B' pos='36:68'>
+                                    <AGENT text='f' pos='36:71'/>
+                                    <OR pos='36:88'>
+                                        <BELIEVES text='B' pos='36:75'>
+                                            <AGENT text='m' pos='36:78'/>
+                                            <PROPOSITION text='-atg' pos='36:82'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='36:91'>
+                                            <AGENT text='m' pos='36:94'/>
+                                            <PROPOSITION text='atg' pos='36:98'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='36:107'>
+                            <PROPOSITION text='nil' pos='36:115'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='36:124'>
+                        <PRECONDITIONS text='PRE' pos='36:130'>
+                            <AND pos='36:178'>
+                                <NOT pos='36:136'>
+                                    <BELIEVES text='B' pos='36:141'>
+                                        <AGENT text='f' pos='36:144'/>
+                                        <OR pos='36:161'>
+                                            <BELIEVES text='B' pos='36:148'>
+                                                <AGENT text='m' pos='36:151'/>
+                                                <PROPOSITION text='-atg' pos='36:155'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='36:164'>
+                                                <AGENT text='m' pos='36:167'/>
+                                                <PROPOSITION text='atg' pos='36:171'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <PROPOSITION text='atg' pos='36:182'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='36:188'>
+                            <PROPOSITION text='nil' pos='36:196'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='36:207'>
+                    <AE text='f' pos='36:216'>
+                        <E text='1' pos='36:220'>
+                            <ID text='1' pos='36:225'/>
+                            <ID text='1' pos='36:227'/>
+                        </E>
+                        <E text='2' pos='36:231'>
+                            <ID text='2' pos='36:236'/>
+                            <ID text='2' pos='36:238'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='36:244'>
+                        <E text='1' pos='36:248'>
+                            <ID text='1' pos='36:253'/>
+                            <ID text='2' pos='36:255'/>
+                        </E>
+                        <E text='2' pos='36:259'>
+                            <ID text='2' pos='36:264'/>
+                            <ID text='2' pos='36:266'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='36:273'>
+                    <ID text='1' pos='36:280'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='36:287'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_presence' pos='36:290'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='38:0'>
+            <EVENTMODEL text='announce_f_to_m_atm' pos='38:16'>
+                <EVENTLIST text='EVENTS' pos='38:40'>
+                    <ID text='1' pos='38:51'>
+                        <PRECONDITIONS text='PRE' pos='38:57'>
+                            <NOT pos='38:63'>
+                                <BELIEVES text='B' pos='38:68'>
+                                    <AGENT text='f' pos='38:71'/>
+                                    <OR pos='38:88'>
+                                        <BELIEVES text='B' pos='38:75'>
+                                            <AGENT text='m' pos='38:78'/>
+                                            <PROPOSITION text='-atm' pos='38:82'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='38:91'>
+                                            <AGENT text='m' pos='38:94'/>
+                                            <PROPOSITION text='atm' pos='38:98'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='38:107'>
+                            <PROPOSITION text='nil' pos='38:115'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='38:124'>
+                        <PRECONDITIONS text='PRE' pos='38:130'>
+                            <AND pos='38:178'>
+                                <NOT pos='38:136'>
+                                    <BELIEVES text='B' pos='38:141'>
+                                        <AGENT text='f' pos='38:144'/>
+                                        <OR pos='38:161'>
+                                            <BELIEVES text='B' pos='38:148'>
+                                                <AGENT text='m' pos='38:151'/>
+                                                <PROPOSITION text='-atm' pos='38:155'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='38:164'>
+                                                <AGENT text='m' pos='38:167'/>
+                                                <PROPOSITION text='atm' pos='38:171'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <PROPOSITION text='atm' pos='38:182'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='38:188'>
+                            <PROPOSITION text='nil' pos='38:196'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='38:207'>
+                    <AE text='f' pos='38:216'>
+                        <E text='1' pos='38:220'>
+                            <ID text='1' pos='38:225'/>
+                            <ID text='1' pos='38:227'/>
+                        </E>
+                        <E text='2' pos='38:231'>
+                            <ID text='2' pos='38:236'/>
+                            <ID text='2' pos='38:238'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='38:244'>
+                        <E text='1' pos='38:248'>
+                            <ID text='1' pos='38:253'/>
+                            <ID text='2' pos='38:255'/>
+                        </E>
+                        <E text='2' pos='38:259'>
+                            <ID text='2' pos='38:264'/>
+                            <ID text='2' pos='38:266'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='38:273'>
+                    <ID text='1' pos='38:280'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='38:287'/>
+            <EXPLANATION text='fox_believes_mouse_uncertain_of_presence_of_mouse_hence_it_announces_the_presence' pos='38:290'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='40:0'>
+            <EVENTMODEL text='announce_f_to_m_atf' pos='40:16'>
+                <EVENTLIST text='EVENTS' pos='40:40'>
+                    <ID text='1' pos='40:51'>
+                        <PRECONDITIONS text='PRE' pos='40:57'>
+                            <NOT pos='40:63'>
+                                <BELIEVES text='B' pos='40:68'>
+                                    <AGENT text='f' pos='40:71'/>
+                                    <OR pos='40:88'>
+                                        <BELIEVES text='B' pos='40:75'>
+                                            <AGENT text='m' pos='40:78'/>
+                                            <PROPOSITION text='-atf' pos='40:82'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='40:91'>
+                                            <AGENT text='m' pos='40:94'/>
+                                            <PROPOSITION text='atf' pos='40:98'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='40:107'>
+                            <PROPOSITION text='nil' pos='40:115'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='40:124'>
+                        <PRECONDITIONS text='PRE' pos='40:130'>
+                            <AND pos='40:178'>
+                                <NOT pos='40:136'>
+                                    <BELIEVES text='B' pos='40:141'>
+                                        <AGENT text='f' pos='40:144'/>
+                                        <OR pos='40:161'>
+                                            <BELIEVES text='B' pos='40:148'>
+                                                <AGENT text='m' pos='40:151'/>
+                                                <PROPOSITION text='-atg' pos='40:155'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='40:164'>
+                                                <AGENT text='m' pos='40:167'/>
+                                                <PROPOSITION text='atg' pos='40:171'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <PROPOSITION text='atf' pos='40:182'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='40:188'>
+                            <PROPOSITION text='nil' pos='40:196'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='40:207'>
+                    <AE text='f' pos='40:216'>
+                        <E text='1' pos='40:220'>
+                            <ID text='1' pos='40:225'/>
+                            <ID text='1' pos='40:227'/>
+                        </E>
+                        <E text='2' pos='40:231'>
+                            <ID text='2' pos='40:236'/>
+                            <ID text='2' pos='40:238'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='40:244'>
+                        <E text='1' pos='40:248'>
+                            <ID text='1' pos='40:253'/>
+                            <ID text='2' pos='40:255'/>
+                        </E>
+                        <E text='2' pos='40:259'>
+                            <ID text='2' pos='40:264'/>
+                            <ID text='2' pos='40:266'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='40:273'>
+                    <ID text='1' pos='40:280'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='40:287'/>
+            <EXPLANATION text='fox_believes_mouse_uncertain_of_presence_of_fox_hence_it_announces_the_presence' pos='40:290'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='42:0'>
+            <EVENTMODEL text='announce_f_to_m_not_atg' pos='42:16'>
+                <EVENTLIST text='EVENTS' pos='42:44'>
+                    <ID text='1' pos='42:55'>
+                        <PRECONDITIONS text='PRE' pos='42:61'>
+                            <NOT pos='42:67'>
+                                <BELIEVES text='B' pos='42:72'>
+                                    <AGENT text='f' pos='42:75'/>
+                                    <OR pos='42:92'>
+                                        <BELIEVES text='B' pos='42:79'>
+                                            <AGENT text='m' pos='42:82'/>
+                                            <PROPOSITION text='-atg' pos='42:86'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='42:95'>
+                                            <AGENT text='m' pos='42:98'/>
+                                            <PROPOSITION text='atg' pos='42:102'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='42:111'>
+                            <PROPOSITION text='nil' pos='42:119'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='42:128'>
+                        <PRECONDITIONS text='PRE' pos='42:134'>
+                            <AND pos='42:182'>
+                                <NOT pos='42:140'>
+                                    <BELIEVES text='B' pos='42:145'>
+                                        <AGENT text='f' pos='42:148'/>
+                                        <OR pos='42:165'>
+                                            <BELIEVES text='B' pos='42:152'>
+                                                <AGENT text='m' pos='42:155'/>
+                                                <PROPOSITION text='-atg' pos='42:159'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='42:168'>
+                                                <AGENT text='m' pos='42:171'/>
+                                                <PROPOSITION text='atg' pos='42:175'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <NOT pos='42:186'>
+                                    <PROPOSITION text='atg' pos='42:190'/>
+                                </NOT>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='42:197'>
+                            <PROPOSITION text='nil' pos='42:205'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='42:216'>
+                    <AE text='f' pos='42:225'>
+                        <E text='1' pos='42:229'>
+                            <ID text='1' pos='42:234'/>
+                            <ID text='1' pos='42:236'/>
+                        </E>
+                        <E text='2' pos='42:240'>
+                            <ID text='2' pos='42:245'/>
+                            <ID text='2' pos='42:247'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='42:253'>
+                        <E text='1' pos='42:257'>
+                            <ID text='1' pos='42:262'/>
+                            <ID text='2' pos='42:264'/>
+                        </E>
+                        <E text='2' pos='42:268'>
+                            <ID text='2' pos='42:273'/>
+                            <ID text='2' pos='42:275'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='42:282'>
+                    <ID text='1' pos='42:289'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='42:296'/>
+            <EXPLANATION text='fox_believes_mouse_uncertain_of_presence_of_gruffalo_hence_it_announces_the_absence' pos='42:299'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='44:0'>
+            <EVENTMODEL text='announce_f_to_m_not_atf' pos='44:16'>
+                <EVENTLIST text='EVENTS' pos='44:44'>
+                    <ID text='1' pos='44:55'>
+                        <PRECONDITIONS text='PRE' pos='44:61'>
+                            <NOT pos='44:67'>
+                                <BELIEVES text='B' pos='44:72'>
+                                    <AGENT text='f' pos='44:75'/>
+                                    <OR pos='44:92'>
+                                        <BELIEVES text='B' pos='44:79'>
+                                            <AGENT text='m' pos='44:82'/>
+                                            <PROPOSITION text='-atf' pos='44:86'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='44:95'>
+                                            <AGENT text='m' pos='44:98'/>
+                                            <PROPOSITION text='atf' pos='44:102'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='44:111'>
+                            <PROPOSITION text='nil' pos='44:119'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='44:128'>
+                        <PRECONDITIONS text='PRE' pos='44:134'>
+                            <AND pos='44:182'>
+                                <NOT pos='44:140'>
+                                    <BELIEVES text='B' pos='44:145'>
+                                        <AGENT text='f' pos='44:148'/>
+                                        <OR pos='44:165'>
+                                            <BELIEVES text='B' pos='44:152'>
+                                                <AGENT text='m' pos='44:155'/>
+                                                <PROPOSITION text='-atf' pos='44:159'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='44:168'>
+                                                <AGENT text='m' pos='44:171'/>
+                                                <PROPOSITION text='atf' pos='44:175'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <NOT pos='44:186'>
+                                    <PROPOSITION text='atf' pos='44:190'/>
+                                </NOT>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='44:197'>
+                            <PROPOSITION text='nil' pos='44:205'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='44:216'>
+                    <AE text='f' pos='44:225'>
+                        <E text='1' pos='44:229'>
+                            <ID text='1' pos='44:234'/>
+                            <ID text='1' pos='44:236'/>
+                        </E>
+                        <E text='2' pos='44:240'>
+                            <ID text='2' pos='44:245'/>
+                            <ID text='2' pos='44:247'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='44:253'>
+                        <E text='1' pos='44:257'>
+                            <ID text='1' pos='44:262'/>
+                            <ID text='2' pos='44:264'/>
+                        </E>
+                        <E text='2' pos='44:268'>
+                            <ID text='2' pos='44:273'/>
+                            <ID text='2' pos='44:275'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='44:282'>
+                    <ID text='1' pos='44:289'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='44:296'/>
+            <EXPLANATION text='fox_believes_mouse_uncertain_of_presence_of_fox_hence_it_announces_the_presence' pos='44:299'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='46:0'>
+            <EVENTMODEL text='announce_f_to_m_not_atm' pos='46:16'>
+                <EVENTLIST text='EVENTS' pos='46:44'>
+                    <ID text='1' pos='46:55'>
+                        <PRECONDITIONS text='PRE' pos='46:61'>
+                            <NOT pos='46:67'>
+                                <BELIEVES text='B' pos='46:72'>
+                                    <AGENT text='f' pos='46:75'/>
+                                    <OR pos='46:92'>
+                                        <BELIEVES text='B' pos='46:79'>
+                                            <AGENT text='m' pos='46:82'/>
+                                            <PROPOSITION text='-atm' pos='46:86'/>
+                                        </BELIEVES>
+                                        <BELIEVES text='B' pos='46:95'>
+                                            <AGENT text='m' pos='46:98'/>
+                                            <PROPOSITION text='atm' pos='46:102'/>
+                                        </BELIEVES>
+                                    </OR>
+                                </BELIEVES>
+                            </NOT>
+                        </PRECONDITIONS>
+                        <POST pos='46:111'>
+                            <PROPOSITION text='nil' pos='46:119'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='46:128'>
+                        <PRECONDITIONS text='PRE' pos='46:134'>
+                            <AND pos='46:182'>
+                                <NOT pos='46:140'>
+                                    <BELIEVES text='B' pos='46:145'>
+                                        <AGENT text='f' pos='46:148'/>
+                                        <OR pos='46:165'>
+                                            <BELIEVES text='B' pos='46:152'>
+                                                <AGENT text='m' pos='46:155'/>
+                                                <PROPOSITION text='-atm' pos='46:159'/>
+                                            </BELIEVES>
+                                            <BELIEVES text='B' pos='46:168'>
+                                                <AGENT text='m' pos='46:171'/>
+                                                <PROPOSITION text='atm' pos='46:175'/>
+                                            </BELIEVES>
+                                        </OR>
+                                    </BELIEVES>
+                                </NOT>
+                                <NOT pos='46:186'>
+                                    <PROPOSITION text='atm' pos='46:190'/>
+                                </NOT>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='46:197'>
+                            <PROPOSITION text='nil' pos='46:205'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='46:216'>
+                    <AE text='f' pos='46:225'>
+                        <E text='1' pos='46:229'>
+                            <ID text='1' pos='46:234'/>
+                            <ID text='1' pos='46:236'/>
+                        </E>
+                        <E text='2' pos='46:240'>
+                            <ID text='2' pos='46:245'/>
+                            <ID text='2' pos='46:247'/>
+                        </E>
+                    </AE>
+                    <AE text='m' pos='46:253'>
+                        <E text='1' pos='46:257'>
+                            <ID text='1' pos='46:262'/>
+                            <ID text='2' pos='46:264'/>
+                        </E>
+                        <E text='2' pos='46:268'>
+                            <ID text='2' pos='46:273'/>
+                            <ID text='2' pos='46:275'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='46:282'>
+                    <ID text='1' pos='46:289'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='46:296'/>
+            <EXPLANATION text='fox_believes_mouse_uncertain_of_presence_of_mouse_hence_it_announces_the_presence' pos='46:299'/>
+        </CAPABILITIES>
+    </EVENTMODELS>
+    <IEVENTMODELS text='IACTIONS' pos='53:0'>
+        <EVENTMODEL text='infer_thm' pos='55:2'>
+            <EVENTLIST text='EVENTS' pos='55:16'>
+                <ID text='1' pos='55:27'>
+                    <PRECONDITIONS text='PRE' pos='55:33'>
+                        <AND pos='55:44'>
+                            <PROPOSITION text='atf' pos='55:40'/>
+                            <PROPOSITION text='atm' pos='55:48'/>
+                        </AND>
+                    </PRECONDITIONS>
+                    <POST pos='55:55'>
+                        <PROPOSITION text='thm' pos='55:63'/>
+                    </POST>
+                </ID>
+            </EVENTLIST>
+            <EDGELIST text='EDGES' pos='55:73'>
+                <AE text='m' pos='55:82'>
+                    <E text='1' pos='55:85'>
+                        <ID text='1' pos='55:88'/>
+                        <ID text='1' pos='55:90'/>
+                    </E>
+                </AE>
+                <AE text='f' pos='55:96'>
+                    <E text='1' pos='55:99'>
+                        <ID text='1' pos='55:102'/>
+                        <ID text='1' pos='55:104'/>
+                    </E>
+                </AE>
+            </EDGELIST>
+            <DES pos='55:111'>
+                <ID text='1' pos='55:118'/>
+            </DES>
+        </EVENTMODEL>
+        <EVENTMODEL text='infer_thf' pos='57:2'>
+            <EVENTLIST text='EVENTS' pos='57:17'>
+                <ID text='1' pos='57:28'>
+                    <PRECONDITIONS text='PRE' pos='57:34'>
+                        <AND pos='57:54'>
+                            <AND pos='57:45'>
+                                <PROPOSITION text='atf' pos='57:41'/>
+                                <PROPOSITION text='atg' pos='57:49'/>
+                            </AND>
+                            <PROPOSITION text='atf' pos='57:58'/>
+                        </AND>
+                    </PRECONDITIONS>
+                    <POST pos='57:64'>
+                        <PROPOSITION text='thf' pos='57:72'/>
+                    </POST>
+                </ID>
+            </EVENTLIST>
+            <EDGELIST text='EDGES' pos='57:82'>
+                <AE text='m' pos='57:91'>
+                    <E text='1' pos='57:94'>
+                        <ID text='1' pos='57:97'/>
+                        <ID text='1' pos='57:99'/>
+                    </E>
+                </AE>
+                <AE text='f' pos='57:105'>
+                    <E text='1' pos='57:108'>
+                        <ID text='1' pos='57:111'/>
+                        <ID text='1' pos='57:113'/>
+                    </E>
+                </AE>
+            </EDGELIST>
+            <DES pos='57:120'>
+                <ID text='1' pos='57:127'/>
+            </DES>
+        </EVENTMODEL>
+        <EVENTMODEL text='infer_not_thm' pos='59:2'>
+            <EVENTLIST text='EVENTS' pos='59:20'>
+                <ID text='1' pos='59:31'>
+                    <PRECONDITIONS text='PRE' pos='59:37'>
+                        <OR pos='59:49'>
+                            <PROPOSITION text='-atf' pos='59:44'/>
+                            <PROPOSITION text='-atm' pos='59:52'/>
+                        </OR>
+                    </PRECONDITIONS>
+                    <POST pos='59:60'>
+                        <PROPOSITION text='-thm' pos='59:68'/>
+                    </POST>
+                </ID>
+            </EVENTLIST>
+            <EDGELIST text='EDGES' pos='59:79'>
+                <AE text='m' pos='59:88'>
+                    <E text='1' pos='59:91'>
+                        <ID text='1' pos='59:94'/>
+                        <ID text='1' pos='59:96'/>
+                    </E>
+                </AE>
+                <AE text='f' pos='59:102'>
+                    <E text='1' pos='59:105'>
+                        <ID text='1' pos='59:108'/>
+                        <ID text='1' pos='59:110'/>
+                    </E>
+                </AE>
+            </EDGELIST>
+            <DES pos='59:117'>
+                <ID text='1' pos='59:124'/>
+            </DES>
+        </EVENTMODEL>
+        <EVENTMODEL text='infer_not_thf' pos='61:2'>
+            <EVENTLIST text='EVENTS' pos='61:21'>
+                <ID text='1' pos='61:32'>
+                    <PRECONDITIONS text='PRE' pos='61:38'>
+                        <OR pos='61:50'>
+                            <PROPOSITION text='-atf' pos='61:45'/>
+                            <PROPOSITION text='-atg' pos='61:53'/>
+                        </OR>
+                    </PRECONDITIONS>
+                    <POST pos='61:61'>
+                        <PROPOSITION text='-thf' pos='61:69'/>
+                    </POST>
+                </ID>
+            </EVENTLIST>
+            <EDGELIST text='EDGES' pos='61:80'>
+                <AE text='m' pos='61:89'>
+                    <E text='1' pos='61:92'>
+                        <ID text='1' pos='61:95'/>
+                        <ID text='1' pos='61:97'/>
+                    </E>
+                </AE>
+                <AE text='f' pos='61:103'>
+                    <E text='1' pos='61:106'>
+                        <ID text='1' pos='61:109'/>
+                        <ID text='1' pos='61:111'/>
+                    </E>
+                </AE>
+            </EDGELIST>
+            <DES pos='61:118'>
+                <ID text='1' pos='61:125'/>
+            </DES>
+        </EVENTMODEL>
+    </IEVENTMODELS>
+    <GOAL pos='65:0'>
+        <PROPOSITION text='-thm' pos='65:8'/>
+    </GOAL>
+    <PLANNER pos='67:0'>
+        <NAME text='m' pos='67:11'/>
+    </PLANNER>
+</PROGRAM>

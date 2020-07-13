@@ -1,0 +1,62 @@
+//The planner is one of the many agents. 
+//There are two a,b,c,d
+//Scenario: the 4 agents are present across 2 rooms: r1, r2, sr. The primary agent has to sense a secret from secret room and tell some of the other agents or some should definitely believe the contradiction of it.
+//fluents: secret, ar1, ar2, asr, br1, br2, bsr, cr1, cr2, csr, dr1, dr2, dsr, friends_b_d 
+
+//CHALLENGE: axioms: friends_b_d and [b] sec implies [c] sec, also, friends_b_d and [c] sec implies [d] sec
+//CHALLENGE: axioms: ar1 implies not ar2 and not asr
+
+//actions: a_sense_sec (a, asr, [a] sec), a_mov_left (a, ar2, ar1; ar1, asr; asr, ar2), b_mov_left (b, br2, br1; br1, bsr; bsr, br2), c_mov_left (c, cr2, cr1; cr1, csr; csr, cr2), d_mov_left (d, dr2, dr1; dr1, dsr; dsr, dr2), a_mov_right (a, ar1, ar2; ar2, asr; asr, ar1), b_mov_right (b, br1, br2; br2, bsr; bsr, br1), c_mov_right (c, cr1, cr2; cr2, csr; csr, cr1), d_mov_right (d, dr2, dr1; dr1, dsr; dsr, dr2), tell_b(if both at same loc), tell_c(if both at same loc), tell_d(if both at same loc),   
+//goal: [a]([b]secret and [d]secret), [a]([b]secret and not [d]secret),   [a]([b]-secret)
+//init: ar1, br1, cr1, dr2, secret?
+
+
+PROPS : {secret, ar1, ar2, asr, br1, br2, bsr, cr1, cr2, csr, dr1, dr2, dsr, friends_b_d} .
+
+AGENTS : {a, b, c, d} .
+
+//primitive atoms: secret, ar1, ar2, asr, br1, br2, bsr, cr1, cr2, csr, dr1, dr2, dsr, friends_b_d
+//derived atoms: no derived atoms
+//axioms doesn't have primitive -> derived relations
+
+MODEL : { NODES = {(1,{secret, -ar1, ar2, -asr, br1, -br2, -bsr, -cr1, cr2, -csr, -dr1, -dr2, dsr, friends_b_d}), (2,{-secret, -ar1, ar2, -asr, br1, -br2, -bsr, -cr1, cr2, -csr, -dr1, -dr2, dsr, friends_b_d})} ,  
+EDGES = {(a,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(b,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(c,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}), (d,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} , 
+DES = {1,2}} .
+
+ACTIONS : {
+
+CAPABILITY = (( a_sence_sec = { EVENTS = { 1 = ( PRE =  (NOT (B [a] (secret)) AND (asr AND secret)), POST = {nil} ) , 2 = ( PRE = (top) , POST = {nil} )  }, EDGES = {(a,{ 1 = (1,1), 2 = (2,2)}),(b,{ 1 = (1,2), 2 = (2,2)}), (c,{ 1 = (1,2), 2 = (2,2)}), (d,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), a, a_finds_that_the_secret_is_true_and_for_others_nothing_happened),
+
+CAPABILITY = (( a_mov_left = { EVENTS = { 1 = ( PRE = (ar2)  , POST = {ar1, -ar2} ), 2 = ( PRE =  (ar1), POST = {asr, -ar1} ), 3 = ( PRE = (asr) , POST = {ar2, -asr} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), a, a_moves_left),
+
+CAPABILITY = (( b_mov_left = { EVENTS = { 1 = ( PRE = (br2)  , POST = {br1, -br2} ), 2 = ( PRE =  (br1), POST = {bsr, -br1} ), 3 = ( PRE = (bsr) , POST = {br2, -bsr} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), b, b_moves_left),
+
+CAPABILITY = (( c_mov_left = { EVENTS = { 1 = ( PRE = (cr2)  , POST = {cr1, -cr2} ), 2 = ( PRE =  (cr1), POST = {csr, -cr1} ), 3 = ( PRE = (csr) , POST = {cr2, -csr} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), c, c_moves_left),
+
+CAPABILITY = (( d_mov_left = { EVENTS = { 1 = ( PRE = (dr2)  , POST = {dr1, -dr2} ), 2 = ( PRE =  (dr1), POST = {dsr, -dr1} ), 3 = ( PRE = (dsr) , POST = {dr2, -dsr} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), d, d_moves_left),
+
+CAPABILITY = (( a_mov_right = { EVENTS = { 1 = ( PRE = (ar2)  , POST = {asr, -ar2} ), 2 = ( PRE =  (asr), POST = {ar1, -asr} ), 3 = ( PRE = (ar1) , POST = {ar2, -ar1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), a, a_moves_right),
+
+CAPABILITY = (( b_mov_right = { EVENTS = { 1 = ( PRE = (br2)  , POST = {bsr, -br2} ), 2 = ( PRE =  (bsr), POST = {br1, -bsr} ), 3 = ( PRE = (br1) , POST = {br2, -br1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), b, b_moves_right),
+
+CAPABILITY = (( c_mov_right = { EVENTS = { 1 = ( PRE = (cr2)  , POST = {csr, -cr2} ), 2 = ( PRE =  (csr), POST = {cr1, -csr} ), 3 = ( PRE = (cr1) , POST = {cr2, -cr1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), c, c_moves_right),
+
+CAPABILITY = (( d_mov_right = { EVENTS = { 1 = ( PRE = (dr2)  , POST = {dsr, -dr2} ), 2 = ( PRE =  (dsr), POST = {dr1, -dsr} ), 3 = ( PRE = (dr1) , POST = {dr2, -dr1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3)}), (b,{1=(1,1),2=(2,2),3=(3,3)}), (c,{1=(1,1),2=(2,2),3=(3,3)}), (d,{1=(1,1),2=(2,2),3=(3,3)}) }, DES = {1,2,3} }), d, d_moves_right),
+
+//CAPABILITY = (( tell_b_secret = { EVENTS = { 1 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND asr AND bsr)  , POST = {nil} ), 2 = ( PRE =  (asr AND bsr), POST = {nil} ), 3 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar1 AND br1) , POST = {nil} ),  4 = ( PRE =  (ar1 AND br1), POST = {nil} ), 5 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar2 AND br2) , POST = {nil} ),  6 = ( PRE =  (ar2 AND br2), POST = {nil} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)}), (b,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)}), (c,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)}), (d,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)})}, DES = {1,3,5} }), a, a_tells_b_rest_are_uncertain),
+
+
+CAPABILITY = (( tell_b_secret = { EVENTS = { 1 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND asr AND bsr)  , POST = {nil} ), 2 = ( PRE = (secret AND (NOT (B [b] (secret))) AND asr AND bsr)  , POST = {nil} ), 3 = ( PRE =  (asr AND bsr), POST = {nil} ), 4 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar1 AND br1)  , POST = {nil} ), 5 = ( PRE = (secret AND (NOT (B [b] (secret))) AND ar1 AND br1)  , POST = {nil} ), 6 = ( PRE =  (ar1 AND br1), POST = {nil} ), 7 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar2 AND br2)  , POST = {nil} ), 8 = ( PRE = (secret AND (NOT (B [b] (secret))) AND ar2 AND br2)  , POST = {nil} ), 9 = ( PRE =  (ar2 AND br2), POST = {nil} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6),7=(7,7),8=(8,8),9=(9,9)}), (b,{1=(1,2),2=(2,2),3=(3,3),4=(4,5),5=(5,5),6=(6,6),7=(7,8),8=(8,8),9=(9,9)}), (c,{1=(1,3),2=(2,3),3=(3,3),4=(4,6),5=(5,6),6=(6,6),7=(7,9),8=(8,9),9=(9,9)}), (d,{1=(1,3),2=(2,3),3=(3,3),4=(4,6),5=(5,6),6=(6,6),7=(7,9),8=(8,9),9=(9,9)})}, DES = {1,4,7} }), a, a_tells_b_rest_are_uncertain),
+
+//CAPABILITY = (( tell_c_secret = { EVENTS = { 1 = ( PRE = (B [a] (secret) AND asr AND (csr AND secret))  , POST = {nil} ), 2 = ( PRE =  (top), POST = {nil} ), 3 = ( PRE = (B [a] (secret) AND ar1 AND (cr1 AND secret)) , POST = {nil} ),  4 = ( PRE =  (top), POST = {nil} ), 5 = ( PRE = (B [a] (secret) AND ar2 AND (cr2 AND secret)) , POST = {nil} ),  6 = ( PRE =  (top), POST = {nil} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)}), (b,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)}), (c,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)}), (d,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)})}, DES = {1,3,5} }), a, a_tells_c_rest_are_uncertain),
+
+//CAPABILITY = (( tell_d_secret = { EVENTS = { 1 = ( PRE = (B [a] (secret) AND asr AND (dsr AND secret))  , POST = {nil} ), 2 = ( PRE =  (top), POST = {nil} ), 3 = ( PRE = (B [a] (secret) AND ar1 AND (dr1 AND secret)) , POST = {nil} ),  4 = ( PRE =  (top), POST = {nil} ), 5 = ( PRE = (B [a] (secret) AND ar2 AND (dr2 AND secret)) , POST = {nil} ),  6 = ( PRE =  (top), POST = {nil} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)}), (b,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)}), (c,{1=(1,2),2=(2,2),3=(3,4),4=(4,4),5=(5,6),6=(6,6)}), (d,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6)})}, DES = {1,3,5} }), a, a_tells_d_rest_are_uncertain)
+
+
+
+}.
+
+GOAL : ( B[a] (B [b] (secret))).
+//GOAL : (B [a] ( B [b] (secret))).
+
+PLANNER : {a} .

@@ -1,0 +1,39 @@
+//The planner is a virtual intelligent assistant. 
+//There are two agents- virtual assistant:v, user:u
+//Scenario: The user is claustrophobic, and hence, prefers to take either a less crowded bus or walk to office. They share a common goal: reach office in time.
+//fluents: crowded, sleepy, scared, ontime, walking 
+
+
+PROPS : {crowded, sleepy, scared, ontime, walking} .
+
+AGENTS : {u, v} .
+
+MODEL : { NODES = {(1,{crowded,sleepy, scared, -ontime,walking}), (2,{-crowded,sleepy, scared,-ontime,walking})}   ,  
+EDGES = {(u,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(v,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} ,
+DES = {1,2}} .
+
+//actions will not have the derived atoms in their post conditions
+
+ACTIONS : {
+
+
+CAPABILITY = (( take_bus = { EVENTS = { 1 = ( PRE = B [u] (-crowded) , POST = {-walking, ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_believes_bus_not_crowded_and_takes_bus_to_reach_office_ontime),
+
+CAPABILITY = (( walk = { EVENTS = { 1 = ( PRE = NOT (B [u] (NOT (crowded))) , POST = {-ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_doesnot_believe_bus_not_crowded_and_walks_to_office_late),
+
+CAPABILITY = (( sip_coffee = { EVENTS = { 1 = ( PRE = sleepy , POST = {-sleepy, -ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_is_sleepy_sips_coffee_on_the_way_and_gets_late),
+
+CAPABILITY = (( inform_not_crowded = { EVENTS = { 1 = ( PRE = (B[v] (NOT (crowded)) AND B[v] (NOT (B[u] (NOT crowded) OR B[u] (crowded)))) , POST = {nil} )}, EDGES ={(v,{ 1 = (1,1)}),(u,{ 1 = (1,1)})}, DES = {1} }), v, v_believes_user_uncertain_of_bus_not_being_crowded_it_informs_the_user),
+
+CAPABILITY = (( ping_bus_service = { EVENTS = { 1 = ( PRE =  scared AND crowded AND (NOT (B[v] (NOT crowded) OR B[v] (crowded))) , POST = {nil} ) , 2 = ( PRE =  scared AND (NOT (crowded) AND (NOT (B[v] (NOT crowded) OR B[v] (crowded)))), POST = {nil} )  }, EDGES ={(u,{ 1 = (1,1), 2 = (2,2), 3 = (1,2), 4 = (2,1)}),(v,{ 1 = (1,1), 2 = (2,2)})}, DES = {2} }), v, v_finds_user_scared_checks_crowded_status)
+
+
+}.
+
+GOAL : (B[u](ontime)).
+
+PLANNER : {v} .
+
+
+
+
