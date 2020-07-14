@@ -3,23 +3,19 @@ PROPS : {atm,atf,atg,thm,thf} .
 
 AGENTS : {m, f} .
 
-//model where m is certain that -atg
-//primitive atoms: atm,atf,atg
-//derived atoms: thm, thf
-
-MODEL : { NODES = {(1,{atm,atf,atg,thm,thf}), (2,{atm,atf,-atg,thm,-thf})}   ,  
-//EDGES = {(m,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(f,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} ,
-EDGES = {(m,{1=(1,1),2=(2,2)}),(f,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} ,
-//DES = {1,2}} .
-DES = {2}} .
+MODEL : { NODES = {(1,{atm,atf,atg,thm,thf}), (2,{atm,atf,-atg,thm,-thf}), (3,{atm,atf,-atg,thm,thf})}   ,  
+EDGES = {(m,{1=(1,1),2=(1,2),3=(1,3),4=(2,1),5=(2,2),6=(2,3),7=(3,1),8=(3,2),9=(3,3)}),(f,{1=(1,1),2=(1,2),3=(1,3),4=(2,1),5=(2,2),6=(2,3),7=(3,1),8=(3,2),9=(3,3)})} ,
+//EDGES = {(m,{1=(1,1),2=(2,2)}),(f,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} ,
+DES = {1,2,3}} .
+//DES = {2}} .
 
 //actions will not have the derived atoms in their post conditions
 
 ACTIONS : {
 
-//CAPABILITY = (( quit_m = { EVENTS = { 1 = ( PRE = B [m] (thm) AND atm , POST = {-atm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), m, mouse_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+//CAPABILITY = (( quit_m = { EVENTS = { 1 = ( PRE = B [m] (thm) AND atm , POST = {-atm,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), m, mouse_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
 
-CAPABILITY = (( quit_f = { EVENTS = { 1 = ( PRE = B [f] (thf) AND atf , POST = {-atf} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), f, fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+CAPABILITY = (( quit_f = { EVENTS = { 1 = ( PRE = B [f] (thf) AND atf , POST = {-atf,-thf,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), f, fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
 
 CAPABILITY = (( announce_m_to_f_atg = { EVENTS = { 1 = ( PRE = B [m] ( NOT (B [f] (-atg))) , POST = {nil} ) , 2 = ( PRE = B [m] ( NOT (B [f] (-atg))) AND atg , POST = {nil} )  }, EDGES ={(m,{ 1 = (1,1), 2 = (2,2)}),(f,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), m, mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_presence),
 
@@ -33,20 +29,6 @@ CAPABILITY = (( announce_m_to_f_not_atf = { EVENTS = { 1 = ( PRE = B [m] ( NOT (
 
 CAPABILITY = (( announce_m_to_f_not_atm = { EVENTS = { 1 = ( PRE = B [m] ( NOT (B [f] (atm))) , POST = {nil} ) , 2 = ( PRE = B [m] ( NOT (B [f] (atm)) AND NOT(atm) , POST = {nil} )  }, EDGES ={(m,{ 1 = (1,1), 2 = (2,2)}),(f,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), m, fox_believes_mouse_uncertain_of_presence_of_mouse_hence_it_announces_the_presence)
 
-
-}.
-
-//iactions will have derived atoms in their pre but not have them in their post conditions -- 0-stratification axioms
-
-IACTIONS : {
-
-( infer_thm = { EVENTS = { 1 = ( PRE = (atf AND atm) , POST = {thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }),
-
-( infer_thf  = { EVENTS = { 1 = ( PRE = (atf AND atg) AND atf , POST = {thf} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }),
-
-( infer_not_thm = { EVENTS = { 1 = ( PRE = (-atf OR -atm) , POST = {-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }),
-
-( infer_not_thf  = { EVENTS = { 1 = ( PRE = (-atf OR -atg) , POST = {-thf} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} })
 
 }.
 

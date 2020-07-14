@@ -1,6 +1,6 @@
 //model where m is certain that -atg
 
-PROPS : {atm,atf,atg,thm,thf,frndmg} .
+PROPS : {atm,atf,atg,thm,thf} .
 
 AGENTS : {m, f} .
 
