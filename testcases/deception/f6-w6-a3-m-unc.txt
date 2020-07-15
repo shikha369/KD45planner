@@ -1,0 +1,25 @@
+//model where m is certain that -atg
+
+PROPS : {atm,atf,atg,thm,thf,frndmg} .
+
+AGENTS : {m, f} .
+
+MODEL : { NODES = {(1,{atm,atf,atg,thm,thf,frndmg}), (2,{atm,atf,-atg,thm,-thf,frndmg}), (3,{atm,atf,-atg,thm,thf,frndmg}), (4,{atm,atf,atg,thm,thf,-frndmg}), (5,{atm,atf,-atg,thm,-thf,-frndmg}), (6,{atm,atf,-atg,thm,thf,-frndmg})}   ,  
+EDGES = {(m,{1=(1,1),2=(1,2),3=(1,3),4=(1,4),5=(1,5),6=(1,6),7=(2,1),8=(2,2),9=(2,3),10=(2,4),11=(2,5),12=(2,6),13=(3,1),14=(3,2),15=(3,3),16=(3,4),17=(3,5),18=(3,6),19=(4,1),20=(4,2),21=(4,3),22=(4,4),23=(4,5),24=(4,6),25=(5,1),26=(5,2),27=(5,3),28=(5,4),29=(5,5),30=(5,6),31=(6,1),32=(6,2),33=(6,3),34=(6,4),35=(6,5),36=(6,6)}),(f,{1=(1,1),2=(1,2),3=(1,3),4=(1,4),5=(1,5),6=(1,6),7=(2,1),8=(2,2),9=(2,3),10=(2,4),11=(2,5),12=(2,6),13=(3,1),14=(3,2),15=(3,3),16=(3,4),17=(3,5),18=(3,6),19=(4,1),20=(4,2),21=(4,3),22=(4,4),23=(4,5),24=(4,6),25=(5,1),26=(5,2),27=(5,3),28=(5,4),29=(5,5),30=(5,6),31=(6,1),32=(6,2),33=(6,3),34=(6,4),35=(6,5),36=(6,6)})} ,
+DES = {1,2,3,4,5,6}} .
+
+ACTIONS : {
+
+//CAPABILITY = (( quit_m = { EVENTS = { 1 = ( PRE = B [m] (thm) AND atm , POST = {-atm,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), m, mouse_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+
+CAPABILITY = (( quit_f = { EVENTS = { 1 = ( PRE = B [f] (thf) AND atf , POST = {-atf,-thf,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), f, fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+
+CAPABILITY = (( announce_m_to_f_atg = { EVENTS = { 1 = ( PRE = B [m] ( NOT (B [f] (-atg))) , POST = {nil} ) , 2 = ( PRE = B [m] ( NOT (B [f] (-atg))) AND atg , POST = {nil} )  }, EDGES ={(m,{ 1 = (1,1), 2 = (2,2)}),(f,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), m, mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_presence)
+
+//( announce_m_to_f_thf = { EVENTS = { 1 = ( PRE = B [m] ( NOT (B [f] (thf))) , POST = {nil} ) , 2 = ( PRE = B [m] ( NOT (B [f] (thf))) AND thf , POST = {nil} )  }, EDGES ={(m,{ 1 = (1,1), 2 = (2,2)}),(f,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} })
+
+}.
+
+GOAL : (-thm).
+
+PLANNER : {m} .

@@ -1,0 +1,485 @@
+<PROGRAM>
+    <PROPOSITIONS text='PROPS' pos='3:0'>
+        <PROPOSITION text='atm' pos='3:9'/>
+        <PROPOSITION text='atf' pos='3:13'/>
+        <PROPOSITION text='atg' pos='3:17'/>
+        <PROPOSITION text='thm' pos='3:21'/>
+        <PROPOSITION text='thf' pos='3:25'/>
+        <PROPOSITION text='frndmg' pos='3:29'/>
+    </PROPOSITIONS>
+    <AG text='AGENTS' pos='5:0'>
+        <AGENT text='m' pos='5:10'/>
+        <AGENT text='f' pos='5:13'/>
+    </AG>
+    <INITIAL_KRIPKE text='MODEL' pos='7:0'>
+        <NODELIST text='NODES' pos='7:10'>
+            <N text='1' pos='7:20'>
+                <PROPOSITION text='atm' pos='7:23'/>
+                <PROPOSITION text='atf' pos='7:27'/>
+                <PROPOSITION text='atg' pos='7:31'/>
+                <PROPOSITION text='thm' pos='7:35'/>
+                <PROPOSITION text='thf' pos='7:39'/>
+                <PROPOSITION text='frndmg' pos='7:43'/>
+            </N>
+            <N text='2' pos='7:54'>
+                <PROPOSITION text='atm' pos='7:57'/>
+                <PROPOSITION text='atf' pos='7:61'/>
+                <PROPOSITION text='-atg' pos='7:65'/>
+                <PROPOSITION text='thm' pos='7:70'/>
+                <PROPOSITION text='-thf' pos='7:74'/>
+                <PROPOSITION text='frndmg' pos='7:79'/>
+            </N>
+            <N text='3' pos='7:90'>
+                <PROPOSITION text='atm' pos='7:93'/>
+                <PROPOSITION text='atf' pos='7:97'/>
+                <PROPOSITION text='-atg' pos='7:101'/>
+                <PROPOSITION text='thm' pos='7:106'/>
+                <PROPOSITION text='thf' pos='7:110'/>
+                <PROPOSITION text='frndmg' pos='7:114'/>
+            </N>
+            <N text='4' pos='7:125'>
+                <PROPOSITION text='atm' pos='7:128'/>
+                <PROPOSITION text='atf' pos='7:132'/>
+                <PROPOSITION text='atg' pos='7:136'/>
+                <PROPOSITION text='thm' pos='7:140'/>
+                <PROPOSITION text='thf' pos='7:144'/>
+                <PROPOSITION text='-frndmg' pos='7:148'/>
+            </N>
+            <N text='5' pos='7:160'>
+                <PROPOSITION text='atm' pos='7:163'/>
+                <PROPOSITION text='atf' pos='7:167'/>
+                <PROPOSITION text='-atg' pos='7:171'/>
+                <PROPOSITION text='thm' pos='7:176'/>
+                <PROPOSITION text='-thf' pos='7:180'/>
+                <PROPOSITION text='-frndmg' pos='7:185'/>
+            </N>
+            <N text='6' pos='7:197'>
+                <PROPOSITION text='atm' pos='7:200'/>
+                <PROPOSITION text='atf' pos='7:204'/>
+                <PROPOSITION text='-atg' pos='7:208'/>
+                <PROPOSITION text='thm' pos='7:213'/>
+                <PROPOSITION text='thf' pos='7:217'/>
+                <PROPOSITION text='-frndmg' pos='7:221'/>
+            </N>
+        </NODELIST>
+        <EDGELIST text='EDGES' pos='8:0'>
+            <AE text='m' pos='8:10'>
+                <E text='1' pos='8:13'>
+                    <ID text='1' pos='8:16'/>
+                    <ID text='1' pos='8:18'/>
+                </E>
+                <E text='2' pos='8:21'>
+                    <ID text='1' pos='8:24'/>
+                    <ID text='2' pos='8:26'/>
+                </E>
+                <E text='3' pos='8:29'>
+                    <ID text='1' pos='8:32'/>
+                    <ID text='3' pos='8:34'/>
+                </E>
+                <E text='4' pos='8:37'>
+                    <ID text='1' pos='8:40'/>
+                    <ID text='4' pos='8:42'/>
+                </E>
+                <E text='5' pos='8:45'>
+                    <ID text='1' pos='8:48'/>
+                    <ID text='5' pos='8:50'/>
+                </E>
+                <E text='6' pos='8:53'>
+                    <ID text='1' pos='8:56'/>
+                    <ID text='6' pos='8:58'/>
+                </E>
+                <E text='7' pos='8:61'>
+                    <ID text='2' pos='8:64'/>
+                    <ID text='1' pos='8:66'/>
+                </E>
+                <E text='8' pos='8:69'>
+                    <ID text='2' pos='8:72'/>
+                    <ID text='2' pos='8:74'/>
+                </E>
+                <E text='9' pos='8:77'>
+                    <ID text='2' pos='8:80'/>
+                    <ID text='3' pos='8:82'/>
+                </E>
+                <E text='10' pos='8:85'>
+                    <ID text='2' pos='8:89'/>
+                    <ID text='4' pos='8:91'/>
+                </E>
+                <E text='11' pos='8:94'>
+                    <ID text='2' pos='8:98'/>
+                    <ID text='5' pos='8:100'/>
+                </E>
+                <E text='12' pos='8:103'>
+                    <ID text='2' pos='8:107'/>
+                    <ID text='6' pos='8:109'/>
+                </E>
+                <E text='13' pos='8:112'>
+                    <ID text='3' pos='8:116'/>
+                    <ID text='1' pos='8:118'/>
+                </E>
+                <E text='14' pos='8:121'>
+                    <ID text='3' pos='8:125'/>
+                    <ID text='2' pos='8:127'/>
+                </E>
+                <E text='15' pos='8:130'>
+                    <ID text='3' pos='8:134'/>
+                    <ID text='3' pos='8:136'/>
+                </E>
+                <E text='16' pos='8:139'>
+                    <ID text='3' pos='8:143'/>
+                    <ID text='4' pos='8:145'/>
+                </E>
+                <E text='17' pos='8:148'>
+                    <ID text='3' pos='8:152'/>
+                    <ID text='5' pos='8:154'/>
+                </E>
+                <E text='18' pos='8:157'>
+                    <ID text='3' pos='8:161'/>
+                    <ID text='6' pos='8:163'/>
+                </E>
+                <E text='19' pos='8:166'>
+                    <ID text='4' pos='8:170'/>
+                    <ID text='1' pos='8:172'/>
+                </E>
+                <E text='20' pos='8:175'>
+                    <ID text='4' pos='8:179'/>
+                    <ID text='2' pos='8:181'/>
+                </E>
+                <E text='21' pos='8:184'>
+                    <ID text='4' pos='8:188'/>
+                    <ID text='3' pos='8:190'/>
+                </E>
+                <E text='22' pos='8:193'>
+                    <ID text='4' pos='8:197'/>
+                    <ID text='4' pos='8:199'/>
+                </E>
+                <E text='23' pos='8:202'>
+                    <ID text='4' pos='8:206'/>
+                    <ID text='5' pos='8:208'/>
+                </E>
+                <E text='24' pos='8:211'>
+                    <ID text='4' pos='8:215'/>
+                    <ID text='6' pos='8:217'/>
+                </E>
+                <E text='25' pos='8:220'>
+                    <ID text='5' pos='8:224'/>
+                    <ID text='1' pos='8:226'/>
+                </E>
+                <E text='26' pos='8:229'>
+                    <ID text='5' pos='8:233'/>
+                    <ID text='2' pos='8:235'/>
+                </E>
+                <E text='27' pos='8:238'>
+                    <ID text='5' pos='8:242'/>
+                    <ID text='3' pos='8:244'/>
+                </E>
+                <E text='28' pos='8:247'>
+                    <ID text='5' pos='8:251'/>
+                    <ID text='4' pos='8:253'/>
+                </E>
+                <E text='29' pos='8:256'>
+                    <ID text='5' pos='8:260'/>
+                    <ID text='5' pos='8:262'/>
+                </E>
+                <E text='30' pos='8:265'>
+                    <ID text='5' pos='8:269'/>
+                    <ID text='6' pos='8:271'/>
+                </E>
+                <E text='31' pos='8:274'>
+                    <ID text='6' pos='8:278'/>
+                    <ID text='1' pos='8:280'/>
+                </E>
+                <E text='32' pos='8:283'>
+                    <ID text='6' pos='8:287'/>
+                    <ID text='2' pos='8:289'/>
+                </E>
+                <E text='33' pos='8:292'>
+                    <ID text='6' pos='8:296'/>
+                    <ID text='3' pos='8:298'/>
+                </E>
+                <E text='34' pos='8:301'>
+                    <ID text='6' pos='8:305'/>
+                    <ID text='4' pos='8:307'/>
+                </E>
+                <E text='35' pos='8:310'>
+                    <ID text='6' pos='8:314'/>
+                    <ID text='5' pos='8:316'/>
+                </E>
+                <E text='36' pos='8:319'>
+                    <ID text='6' pos='8:323'/>
+                    <ID text='6' pos='8:325'/>
+                </E>
+            </AE>
+            <AE text='f' pos='8:331'>
+                <E text='1' pos='8:334'>
+                    <ID text='1' pos='8:337'/>
+                    <ID text='1' pos='8:339'/>
+                </E>
+                <E text='2' pos='8:342'>
+                    <ID text='1' pos='8:345'/>
+                    <ID text='2' pos='8:347'/>
+                </E>
+                <E text='3' pos='8:350'>
+                    <ID text='1' pos='8:353'/>
+                    <ID text='3' pos='8:355'/>
+                </E>
+                <E text='4' pos='8:358'>
+                    <ID text='1' pos='8:361'/>
+                    <ID text='4' pos='8:363'/>
+                </E>
+                <E text='5' pos='8:366'>
+                    <ID text='1' pos='8:369'/>
+                    <ID text='5' pos='8:371'/>
+                </E>
+                <E text='6' pos='8:374'>
+                    <ID text='1' pos='8:377'/>
+                    <ID text='6' pos='8:379'/>
+                </E>
+                <E text='7' pos='8:382'>
+                    <ID text='2' pos='8:385'/>
+                    <ID text='1' pos='8:387'/>
+                </E>
+                <E text='8' pos='8:390'>
+                    <ID text='2' pos='8:393'/>
+                    <ID text='2' pos='8:395'/>
+                </E>
+                <E text='9' pos='8:398'>
+                    <ID text='2' pos='8:401'/>
+                    <ID text='3' pos='8:403'/>
+                </E>
+                <E text='10' pos='8:406'>
+                    <ID text='2' pos='8:410'/>
+                    <ID text='4' pos='8:412'/>
+                </E>
+                <E text='11' pos='8:415'>
+                    <ID text='2' pos='8:419'/>
+                    <ID text='5' pos='8:421'/>
+                </E>
+                <E text='12' pos='8:424'>
+                    <ID text='2' pos='8:428'/>
+                    <ID text='6' pos='8:430'/>
+                </E>
+                <E text='13' pos='8:433'>
+                    <ID text='3' pos='8:437'/>
+                    <ID text='1' pos='8:439'/>
+                </E>
+                <E text='14' pos='8:442'>
+                    <ID text='3' pos='8:446'/>
+                    <ID text='2' pos='8:448'/>
+                </E>
+                <E text='15' pos='8:451'>
+                    <ID text='3' pos='8:455'/>
+                    <ID text='3' pos='8:457'/>
+                </E>
+                <E text='16' pos='8:460'>
+                    <ID text='3' pos='8:464'/>
+                    <ID text='4' pos='8:466'/>
+                </E>
+                <E text='17' pos='8:469'>
+                    <ID text='3' pos='8:473'/>
+                    <ID text='5' pos='8:475'/>
+                </E>
+                <E text='18' pos='8:478'>
+                    <ID text='3' pos='8:482'/>
+                    <ID text='6' pos='8:484'/>
+                </E>
+                <E text='19' pos='8:487'>
+                    <ID text='4' pos='8:491'/>
+                    <ID text='1' pos='8:493'/>
+                </E>
+                <E text='20' pos='8:496'>
+                    <ID text='4' pos='8:500'/>
+                    <ID text='2' pos='8:502'/>
+                </E>
+                <E text='21' pos='8:505'>
+                    <ID text='4' pos='8:509'/>
+                    <ID text='3' pos='8:511'/>
+                </E>
+                <E text='22' pos='8:514'>
+                    <ID text='4' pos='8:518'/>
+                    <ID text='4' pos='8:520'/>
+                </E>
+                <E text='23' pos='8:523'>
+                    <ID text='4' pos='8:527'/>
+                    <ID text='5' pos='8:529'/>
+                </E>
+                <E text='24' pos='8:532'>
+                    <ID text='4' pos='8:536'/>
+                    <ID text='6' pos='8:538'/>
+                </E>
+                <E text='25' pos='8:541'>
+                    <ID text='5' pos='8:545'/>
+                    <ID text='1' pos='8:547'/>
+                </E>
+                <E text='26' pos='8:550'>
+                    <ID text='5' pos='8:554'/>
+                    <ID text='2' pos='8:556'/>
+                </E>
+                <E text='27' pos='8:559'>
+                    <ID text='5' pos='8:563'/>
+                    <ID text='3' pos='8:565'/>
+                </E>
+                <E text='28' pos='8:568'>
+                    <ID text='5' pos='8:572'/>
+                    <ID text='4' pos='8:574'/>
+                </E>
+                <E text='29' pos='8:577'>
+                    <ID text='5' pos='8:581'/>
+                    <ID text='5' pos='8:583'/>
+                </E>
+                <E text='30' pos='8:586'>
+                    <ID text='5' pos='8:590'/>
+                    <ID text='6' pos='8:592'/>
+                </E>
+                <E text='31' pos='8:595'>
+                    <ID text='6' pos='8:599'/>
+                    <ID text='1' pos='8:601'/>
+                </E>
+                <E text='32' pos='8:604'>
+                    <ID text='6' pos='8:608'/>
+                    <ID text='2' pos='8:610'/>
+                </E>
+                <E text='33' pos='8:613'>
+                    <ID text='6' pos='8:617'/>
+                    <ID text='3' pos='8:619'/>
+                </E>
+                <E text='34' pos='8:622'>
+                    <ID text='6' pos='8:626'/>
+                    <ID text='4' pos='8:628'/>
+                </E>
+                <E text='35' pos='8:631'>
+                    <ID text='6' pos='8:635'/>
+                    <ID text='5' pos='8:637'/>
+                </E>
+                <E text='36' pos='8:640'>
+                    <ID text='6' pos='8:644'/>
+                    <ID text='6' pos='8:646'/>
+                </E>
+            </AE>
+        </EDGELIST>
+        <DES pos='9:0'>
+            <ID text='1' pos='9:7'/>
+            <ID text='2' pos='9:9'/>
+            <ID text='3' pos='9:11'/>
+            <ID text='4' pos='9:13'/>
+            <ID text='5' pos='9:15'/>
+            <ID text='6' pos='9:17'/>
+        </DES>
+    </INITIAL_KRIPKE>
+    <EVENTMODELS text='ACTIONS' pos='11:0'>
+        <CAPABILITIES text='CAPABILITY' pos='15:0'>
+            <EVENTMODEL text='quit_f' pos='15:16'>
+                <EVENTLIST text='EVENTS' pos='15:27'>
+                    <ID text='1' pos='15:38'>
+                        <PRECONDITIONS text='PRE' pos='15:44'>
+                            <AND pos='15:62'>
+                                <BELIEVES text='B' pos='15:50'>
+                                    <AGENT text='f' pos='15:53'/>
+                                    <PROPOSITION text='thf' pos='15:57'/>
+                                </BELIEVES>
+                                <PROPOSITION text='atf' pos='15:66'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='15:72'>
+                            <PROPOSITION text='-atf' pos='15:80'/>
+                            <PROPOSITION text='-thf' pos='15:85'/>
+                            <PROPOSITION text='-thm' pos='15:90'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='15:101'>
+                    <AE text='m' pos='15:110'>
+                        <E text='1' pos='15:113'>
+                            <ID text='1' pos='15:116'/>
+                            <ID text='1' pos='15:118'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='15:124'>
+                        <E text='1' pos='15:127'>
+                            <ID text='1' pos='15:130'/>
+                            <ID text='1' pos='15:132'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='15:139'>
+                    <ID text='1' pos='15:146'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='f' pos='15:153'/>
+            <EXPLANATION text='fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves' pos='15:156'/>
+        </CAPABILITIES>
+        <CAPABILITIES text='CAPABILITY' pos='17:0'>
+            <EVENTMODEL text='announce_m_to_f_atg' pos='17:16'>
+                <EVENTLIST text='EVENTS' pos='17:40'>
+                    <ID text='1' pos='17:51'>
+                        <PRECONDITIONS text='PRE' pos='17:57'>
+                            <BELIEVES text='B' pos='17:63'>
+                                <AGENT text='m' pos='17:66'/>
+                                <NOT pos='17:71'>
+                                    <BELIEVES text='B' pos='17:76'>
+                                        <AGENT text='f' pos='17:79'/>
+                                        <PROPOSITION text='-atg' pos='17:83'/>
+                                    </BELIEVES>
+                                </NOT>
+                            </BELIEVES>
+                        </PRECONDITIONS>
+                        <POST pos='17:93'>
+                            <PROPOSITION text='nil' pos='17:101'/>
+                        </POST>
+                    </ID>
+                    <ID text='2' pos='17:110'>
+                        <PRECONDITIONS text='PRE' pos='17:116'>
+                            <AND pos='17:150'>
+                                <BELIEVES text='B' pos='17:122'>
+                                    <AGENT text='m' pos='17:125'/>
+                                    <NOT pos='17:130'>
+                                        <BELIEVES text='B' pos='17:135'>
+                                            <AGENT text='f' pos='17:138'/>
+                                            <PROPOSITION text='-atg' pos='17:142'/>
+                                        </BELIEVES>
+                                    </NOT>
+                                </BELIEVES>
+                                <PROPOSITION text='atg' pos='17:154'/>
+                            </AND>
+                        </PRECONDITIONS>
+                        <POST pos='17:160'>
+                            <PROPOSITION text='nil' pos='17:168'/>
+                        </POST>
+                    </ID>
+                </EVENTLIST>
+                <EDGELIST text='EDGES' pos='17:179'>
+                    <AE text='m' pos='17:188'>
+                        <E text='1' pos='17:192'>
+                            <ID text='1' pos='17:197'/>
+                            <ID text='1' pos='17:199'/>
+                        </E>
+                        <E text='2' pos='17:203'>
+                            <ID text='2' pos='17:208'/>
+                            <ID text='2' pos='17:210'/>
+                        </E>
+                    </AE>
+                    <AE text='f' pos='17:216'>
+                        <E text='1' pos='17:220'>
+                            <ID text='1' pos='17:225'/>
+                            <ID text='2' pos='17:227'/>
+                        </E>
+                        <E text='2' pos='17:231'>
+                            <ID text='2' pos='17:236'/>
+                            <ID text='2' pos='17:238'/>
+                        </E>
+                    </AE>
+                </EDGELIST>
+                <DES pos='17:245'>
+                    <ID text='1' pos='17:252'/>
+                </DES>
+            </EVENTMODEL>
+            <NAME text='m' pos='17:259'/>
+            <EXPLANATION text='mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_presence' pos='17:262'/>
+        </CAPABILITIES>
+    </EVENTMODELS>
+    <GOAL pos='23:0'>
+        <PROPOSITION text='-thm' pos='23:8'/>
+    </GOAL>
+    <PLANNER pos='25:0'>
+        <NAME text='m' pos='25:11'/>
+    </PLANNER>
+</PROGRAM>
