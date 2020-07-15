@@ -1025,7 +1025,6 @@
             <NAME text='b' pos='35:18'/>
             <EXPLANATION text='b_announces_secret' pos='35:21'/>
         </CAPABILITIES>
-        <ERROR:NULL-TOKEN/>
     </EVENTMODELS>
     <GOAL pos='39:0'>
         <BELIEVES text='B' pos='39:9'>

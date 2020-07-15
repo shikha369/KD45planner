@@ -85,7 +85,7 @@ public class planner {
                         next = curr.self.update(action);
                         
                         //DEBUG
-                        //System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
+                        System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
                         /**
                          * list to store the names of inferencing actions
                          */

@@ -1,0 +1,55 @@
+ 
+//agents: a,b,c
+//fluents: secret, ar1, ar2, ar3, ar4, br1, br2, br3, br4, cr1, cr2, cr3, cr4
+//secret can be sensed in r4
+
+PROPS : {secret, ar1, ar2, ar3, ar4, br1, br2, br3, br4, cr1, cr2, cr3, cr4} .
+
+AGENTS : {a, b, c} .
+
+MODEL : { NODES = {(1,{secret, -ar1, ar2, -ar3, -ar4, -br1, br2, -br3, -br4, -cr1, cr2, -cr3, -cr4}), (2,{-secret, -ar1, ar2, -ar3, -ar4, -br1, br2, -br3, -br4, -cr1, cr2, -cr3, -cr4})} ,  
+EDGES = {(a,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(b,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)}),(c,{1=(1,1),2=(1,2),3=(2,1),4=(2,2)})} , 
+DES = {1,2}} .
+
+ACTIONS : {
+
+CAPABILITY = (( b_sence_sec = { EVENTS = { 1 = ( PRE =  (NOT (B [b] (secret)) AND (br4 AND secret)), POST = {nil} ) , 2 = ( PRE = (top) , POST = {nil} )  }, EDGES = {(a,{ 1 = (1,2), 2 = (2,2)}),(b,{ 1 = (1,1), 2 = (2,2)}), (c,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), b, b_finds_that_the_secret_is_true_and_for_others_nothing_happened),
+
+CAPABILITY = (( a_mov_left = { EVENTS = { 1 = ( PRE = (ar2)  , POST = {ar1, -ar2} ), 2 = ( PRE =  (ar1), POST = {ar4, -ar1} ), 3 = ( PRE = (ar4) , POST = {ar3, -ar4} ), 4 = ( PRE = (ar3) , POST = {ar2, -ar3} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)})}, DES = {1,2,3,4} }), a, a_moves_left),
+
+CAPABILITY = (( b_mov_left = { EVENTS = { 1 = ( PRE = (br2)  , POST = {br1, -br2} ), 2 = ( PRE =  (br1), POST = {br4, -br1} ), 3 = ( PRE = (br4) , POST = {br3, -br4} ), 4 = ( PRE = (br3) , POST = {br2, -br3} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)})}, DES = {1,2,3,4} }), b, b_moves_left),
+
+CAPABILITY = (( c_mov_left = { EVENTS = { 1 = ( PRE = (cr2)  , POST = {cr1, -cr2} ), 2 = ( PRE =  (cr1), POST = {cr4, -cr1} ), 3 = ( PRE = (cr4) , POST = {cr3, -cr4} ), 4 = ( PRE = (cr3) , POST = {cr2, -cr3} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)})}, DES = {1,2,3,4} }), c, c_moves_left),
+
+CAPABILITY = (( a_mov_right = { EVENTS = { 1 = ( PRE = (ar2)  , POST = {ar3, -ar2} ), 2 = ( PRE =  (ar3), POST = {ar4, -ar3} ), 3 = ( PRE = (ar4) , POST = {ar1, -ar4} ), 4 = ( PRE =  (ar1), POST = {ar2, -ar1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}) }, DES = {1,2,3,4} }), a, a_moves_right),
+
+CAPABILITY = (( b_mov_right = { EVENTS = { 1 = ( PRE = (br2)  , POST = {br3, -br2} ), 2 = ( PRE =  (br3), POST = {br4, -br3} ), 3 = ( PRE = (br4) , POST = {br1, -br4} ), 4 = ( PRE =  (br1), POST = {br2, -br1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}) }, DES = {1,2,3,4} }), b, b_moves_right),
+
+CAPABILITY = (( c_mov_right = { EVENTS = { 1 = ( PRE = (cr2)  , POST = {cr3, -cr2} ), 2 = ( PRE =  (cr3), POST = {cr4, -cr3} ), 3 = ( PRE = (cr4) , POST = {cr1, -cr4} ), 4 = ( PRE =  (cr1), POST = {cr2, -cr1} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (b,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}), (c,{1=(1,1),2=(2,2),3=(3,3), 4=(4,4)}) }, DES = {1,2,3,4} }), c, c_moves_right),
+
+
+//CAPABILITY = (( a_announce_secret = { EVENTS = { 1 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar4 AND br4)  , POST = {nil} ), 2 = ( PRE = (secret AND (NOT (B [b] (secret))) AND ar4 AND br4)  , POST = {nil} ), 3 = ( PRE =  (ar4 AND br4), POST = {nil} ), 4 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar1 AND br1)  , POST = {nil} ), 5 = ( PRE = (secret AND (NOT (B [b] (secret))) AND ar1 AND br1)  , POST = {nil} ), 6 = ( PRE =  (ar1 AND br1), POST = {nil} ), 7 = ( PRE = (B [a] (secret) AND (NOT (B [b] (secret))) AND ar2 AND br2)  , POST = {nil} ), 8 = ( PRE = (secret AND (NOT (B [b] (secret))) AND ar2 AND br2)  , POST = {nil} ), 9 = ( PRE =  (ar2 AND br2), POST = {nil} )}, EDGES ={(a,{1=(1,1),2=(2,2),3=(3,3),4=(4,4),5=(5,5),6=(6,6),7=(7,7),8=(8,8),9=(9,9)}), (b,{1=(1,2),2=(2,2),3=(3,3),4=(4,5),5=(5,5),6=(6,6),7=(7,8),8=(8,8),9=(9,9)}), (c,{1=(1,3),2=(2,3),3=(3,3),4=(4,6),5=(5,6),6=(6,6),7=(7,9),8=(8,9),9=(9,9)}), (d,{1=(1,3),2=(2,3),3=(3,3),4=(4,6),5=(5,6),6=(6,6),7=(7,9),8=(8,9),9=(9,9)})}, DES = {1,4,7} }), a, a_tells_b_rest_are_uncertain),
+
+CAPABILITY = (( b_announce_secret = { EVENTS = {
+1 = ( PRE = (B [b] (secret) AND (NOT (B [a] (-secret))) AND ( (ar1 AND br1 AND -cr1) OR (ar2 AND br2 AND -cr2) OR (ar3 AND br3 AND -cr3) OR (ar4 AND br4 AND -cr4) ))  , POST = {nil} ), 
+2 = ( PRE = (secret AND (NOT (B [a] (-secret))) AND ( (ar1 AND br1 AND -cr1) OR (ar2 AND br2 AND -cr2) OR (ar3 AND br3 AND -cr3) OR (ar4 AND br4 AND -cr4) ))  , POST = {nil} ), 
+3 = ( PRE = ( (ar1 AND br1 AND -cr1) OR (ar2 AND br2 AND -cr2) OR (ar3 AND br3 AND -cr3) OR (ar4 AND br4 AND -cr4) ), POST = {nil} ), 
+
+4 = ( PRE = (B [b] (secret) AND (NOT (B [c] (-secret))) AND ( (cr1 AND br1 AND -ar1) OR (cr2 AND br2 AND -ar2) OR (cr3 AND br3 AND -ar3) OR (cr4 AND br4 AND -ar4) ))  , POST = {nil} ), 
+5 = ( PRE = (secret AND (NOT (B [c] (-secret))) AND ( (cr1 AND br1 AND -ar1) OR (cr2 AND br2 AND -ar2) OR (cr3 AND br3 AND -ar3) OR (cr4 AND br4 AND -ar4) )) , POST = {nil} ), 
+6 = ( PRE =  ( (cr1 AND br1 AND -ar1) OR (cr2 AND br2 AND -ar2) OR (cr3 AND br3 AND -ar3) OR (cr4 AND br4 AND -ar4) ), POST = {nil} ), 
+
+7 = ( PRE = (B [b] (secret) AND (NOT (B [c] (-secret))) AND (NOT (B [a] (-secret))) AND ( (cr1 AND br1 AND ar1) OR (cr2 AND br2 AND ar2) OR (cr3 AND br3 AND ar3) OR (cr4 AND br4 AND ar4) ))  , POST = {nil} ), 
+8 = ( PRE = (secret AND (NOT (B [c] (-secret))) AND (NOT (B [a] (-secret))) AND( (cr1 AND br1 AND ar1) OR (cr2 AND br2 AND ar2) OR (cr3 AND br3 AND ar3) OR (cr4 AND br4 AND ar4) ))  , POST = {nil} )}, 
+EDGES ={
+(a,{1=(1,2), 2=(2,2), 3=(3,3), 4=(4,6), 5=(5,6), 6=(6,6), 7=(7,8), 8=(8,8)}), 
+(b,{1=(1,1), 2=(2,2), 3=(3,3), 4=(4,4), 5=(5,5), 6=(6,6), 7=(7,7), 8=(8,8)}), 
+(c,{1=(1,3), 2=(2,3), 3=(3,3), 4=(4,5), 5=(5,5), 6=(6,6), 7=(7,8), 8=(8,8)})
+}, 
+DES = {1,4,7} }), b, b_announces_secret)}.
+
+
+GOAL : ( B[b] (B [a] (secret) AND B [c] (secret))).
+//GOAL : (B [b] ( B [a] (secret))).
+
+PLANNER : {b} .
