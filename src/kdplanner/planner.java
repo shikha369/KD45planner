@@ -11,8 +11,7 @@ import java.util.ArrayList;
  *
  * @author shikha
  * 
- * This planner is a simple bfs planner with 0-level stratified axioms incorporated as inferencing actions
- * in the system
+ * This planner is a simple bfs planner 
  * 
  */
 public class planner {
@@ -68,6 +67,7 @@ public class planner {
                 {
                     //has to explore all sucessors
                     KripkeAction action = PlanningProblem.updates.get(a);
+                    //System.out.println("checking: "+action.ActionName +" on "+ curr.self.modelId);
                     
                     if(flag_self)//the conditon below will not be checked if self is false;allowing all the actions
                     if(!PlanningProblem.action_to_agent.get(action.ActionName).equals(PlanningProblem.self))
@@ -80,28 +80,25 @@ public class planner {
                     
                     if(curr.self.applicable(action))
                     {
-                        //DEBUG
-                        //System.out.println("applying: "+action.ActionName +" on "+ curr.self.modelId);
-                        //if(action.ActionName.equals("tell_b_secret"))
-                          //  System.out.println("ye kya");
+                        
+
                         next = curr.self.update(action);
+                        
+                        //DEBUG
+                        //System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
                         /**
                          * list to store the names of inferencing actions
                          */
                         listInferences = new ArrayList();
                         
-                        /***
-                         * apply all the iupdates (inferencing actions on the next)
-                         */
-                        PlanningProblem.temp_models.add(next);
-                        
                         PlanningProblem.models.add(next);
-                        PlanningProblem.temp_models.clear();
+                        
                         SearchNode child = new SearchNode(curr, action, next, listInferences);
                         open.add(child);
                         
                     }
                     else{
+                        //DEBUG
                         //System.out.println("couldn't apply: " + action.ActionName);
                     }
                 }
