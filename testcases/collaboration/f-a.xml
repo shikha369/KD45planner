@@ -1357,13 +1357,19 @@
             <EXPLANATION text='b_announces_secret' pos='49:21'/>
         </CAPABILITIES>
     </EVENTMODELS>
-    <GOAL pos='53:0'>
-        <BELIEVES text='B' pos='53:8'>
-            <AGENT text='b' pos='53:11'/>
-            <BELIEVES text='B' pos='53:16'>
-                <AGENT text='a' pos='53:19'/>
-                <PROPOSITION text='secret' pos='53:23'/>
-            </BELIEVES>
+    <GOAL pos='52:0'>
+        <BELIEVES text='B' pos='52:9'>
+            <AGENT text='b' pos='52:11'/>
+            <AND pos='52:30'>
+                <BELIEVES text='B' pos='52:15'>
+                    <AGENT text='a' pos='52:18'/>
+                    <PROPOSITION text='secret' pos='52:22'/>
+                </BELIEVES>
+                <BELIEVES text='B' pos='52:34'>
+                    <AGENT text='c' pos='52:37'/>
+                    <PROPOSITION text='secret' pos='52:41'/>
+                </BELIEVES>
+            </AND>
         </BELIEVES>
     </GOAL>
     <PLANNER pos='55:0'>

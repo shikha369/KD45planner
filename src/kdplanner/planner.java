@@ -48,6 +48,8 @@ public class planner {
                 * compute plan and return
                 */ 
                 
+                System.out.println("Number of models evaluated: " + curr.self.modelId);
+                
                 while(!(curr.ParentNode == null))
                 {
                     act_plan.add(curr.Action.ActionName + " [" + curr.listIactions+" ]");
@@ -85,9 +87,10 @@ public class planner {
                         next = curr.self.update(action);
                         
                         //DEBUG
-                        System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
+                        //System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
                         /**
                          * list to store the names of inferencing actions
+                         * <Todo: functionality to be added in future>
                          */
                         listInferences = new ArrayList();
                         
@@ -104,7 +107,6 @@ public class planner {
                 }
             
             closed.add(curr);
-            //curr = open.remove(0);
             
         }  
      return act_plan;
