@@ -179,9 +179,18 @@ public class KDPlanner {
                     System.out.println("add action and enter");
                     plan.add(input.next());
                     System.out.println("Press Y to add more");
-                    if(!input.hasNext("Y")||(!input.hasNext("y")))
+                    //if(!input.hasNext("Y")||(!input.hasNext("y")))
+                      //  cont = false;
+                    //input.next();
+                    if(input.hasNext("Y")||(input.hasNext("y")))
+                    {
+                        input.next();
+                        continue;
+                        
+                               
+                    }
+                        else
                         cont = false;
-                    input.next();
                     
                 }
                 

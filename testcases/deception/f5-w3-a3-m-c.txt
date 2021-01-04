@@ -10,9 +10,9 @@ DES = {2}} .
 
 ACTIONS : {
 
-//CAPABILITY = (( quit_m = { EVENTS = { 1 = ( PRE = B [m] (thm) AND atm , POST = {-atm,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), m, mouse_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+//CAPABILITY = (( quit_m = { EVENTS = { 1 = ( PRE = thm AND atm , POST = {-atm,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), m, mouse_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
 
-CAPABILITY = (( quit_f = { EVENTS = { 1 = ( PRE = B [f] (thf) AND atf , POST = {-atf,-thf,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), f, fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
+CAPABILITY = (( quit_f = { EVENTS = { 1 = ( PRE = thf AND atf , POST = {-atf,-thf,-thm} ) }, EDGES ={(m,{1=(1,1)}),(f,{1=(1,1)})}, DES = {1} }), f, fox_is_in_a_scenario_where_it_believes_threatened_hence_leaves),
 
 CAPABILITY = (( announce_m_to_f_atg = { EVENTS = { 1 = ( PRE = B [m] ( NOT (B [f] (-atg))) , POST = {nil} ) , 2 = ( PRE = B [m] ( NOT (B [f] (-atg))) AND atg , POST = {nil} )  }, EDGES ={(m,{ 1 = (1,1), 2 = (2,2)}),(f,{ 1 = (1,2), 2 = (2,2)})}, DES = {1} }), m, mouse_believes_fox_uncertain_of_presence_of_gruffalo_hence_it_announces_the_presence)
 

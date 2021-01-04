@@ -271,7 +271,7 @@ public class KripkeStructure {
                     checkForApplicability.leftFormula = new Formula();
                     checkForApplicability.leftFormula.type = Formula.form_type.AGENTNAME;
                     checkForApplicability.leftFormula.fluents = new ArrayList<>();
-                    checkForApplicability.leftFormula.fluents.add(PlanningProblem.self);
+                    checkForApplicability.leftFormula.fluents.add(PlanningProblem.action_to_agent.get(action.ActionName));
                     checkForApplicability.rightFormula = curr_event.preconditions;
                     
                 }

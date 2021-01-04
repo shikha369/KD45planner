@@ -69,7 +69,7 @@ public class planner {
                 {
                     //has to explore all sucessors
                     KripkeAction action = PlanningProblem.updates.get(a);
-                    //System.out.println("checking: "+action.ActionName +" on "+ curr.self.modelId);
+                    System.out.println("checking: "+action.ActionName +" on "+ curr.self.modelId);
                     
                     if(flag_self)//the conditon below will not be checked if self is false;allowing all the actions
                     if(!PlanningProblem.action_to_agent.get(action.ActionName).equals(PlanningProblem.self))
@@ -87,7 +87,7 @@ public class planner {
                         next = curr.self.update(action);
                         
                         //DEBUG
-                        //System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
+                        System.out.println(next.modelId +" = "+"applying: "+action.ActionName +" on "+ curr.self.modelId);
                         /**
                          * list to store the names of inferencing actions
                          * <Todo: functionality to be added in future>

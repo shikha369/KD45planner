@@ -449,7 +449,7 @@
     </EVENTMODELS>
     <GOAL pos='32:0'>
         <BELIEVES text='B' pos='32:8'>
-            <AGENT text='u' pos='32:10'/>
+            <AGENT text='v' pos='32:10'/>
             <PROPOSITION text='ontime' pos='32:13'/>
         </BELIEVES>
     </GOAL>

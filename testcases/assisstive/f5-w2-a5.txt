@@ -17,9 +17,9 @@ DES = {1,2}} .
 ACTIONS : {
 
 
-CAPABILITY = (( take_bus = { EVENTS = { 1 = ( PRE = B [u] (-crowded) , POST = {-walking, ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_believes_bus_not_crowded_and_takes_bus_to_reach_office_ontime),
+CAPABILITY = (( take_bus = { EVENTS = { 1 = ( PRE = (NOT (crowded)) , POST = {-walking, ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_believes_bus_not_crowded_and_takes_bus_to_reach_office_ontime),
 
-CAPABILITY = (( walk = { EVENTS = { 1 = ( PRE = NOT (B [u] (NOT (crowded))) , POST = {-ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_doesnot_believe_bus_not_crowded_and_walks_to_office_late),
+CAPABILITY = (( walk = { EVENTS = { 1 = ( PRE =  crowded , POST = {-ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_doesnot_believe_bus_not_crowded_and_walks_to_office_late),
 
 CAPABILITY = (( sip_coffee = { EVENTS = { 1 = ( PRE = sleepy , POST = {-sleepy, -ontime} ) }, EDGES ={(u,{1=(1,1)}),(v,{1=(1,1)})}, DES = {1} }), u, user_is_sleepy_sips_coffee_on_the_way_and_gets_late),
 
